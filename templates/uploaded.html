@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katula</title>
+    
+    <script src="htmx.min.js"></script>
+    
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="text-center pt-5 pb-5">
+        <p class="text-green-600 mb-4">Image transformée avec succès !</p>
+        <!-- Image affichée -->
+        <img src="{{ image_url }}" alt="Transformed Image" class="mx-auto w-1/2 rounded shadow">
+        
+        <!-- Bouton Télécharger -->
+        <a 
+            href="{{ download_url }}" 
+            class="bg-green-500 text-white py-2 px-4 mt-4 inline-block rounded hover:bg-green-600">
+            Télécharger l'Image
+        </a>
+    
+        <!-- Bouton Retour -->
+        <a 
+            href="/" 
+            class="bg-blue-500 text-white py-2 px-4 mt-4 inline-block rounded hover:bg-blue-600">
+            Retour
+        </a>
+    </div>
+    
+</body>
+</html>

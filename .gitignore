@@ -1,0 +1,42 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.pdb
+
+# Environnement virtuel
+venv/
+env/
+.venv/
+.env/
+
+# Dossiers de développement
+.idea/
+.vscode/
+
+# Fichiers de configuration
+*.sqlite3
+*.db
+*.log
+
+# Dossiers de build
+build/
+dist/
+*.egg-info/
+
+# Fichiers de cache
+*.cache
+*.swp
+
+# Dossier de migrations
+migrations/
+
+# Fichiers d'upload temporaires
+static/uploads/
+
+# Fichiers générés par Flask
+instance/
+
+# Fichiers de configuration spécifiques
+*.env
