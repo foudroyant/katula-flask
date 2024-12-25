@@ -51,8 +51,6 @@ def remove_bg():
 
 @app.route("/")
 def index():
-    # Lance un thread pour supprimer le fichier après 3 minutes
-    #threading.Thread(target=delete_file_after_delay, args=(FILE_PATH, 180)).start()
     
     # Rend la page HTML
     return render_template('index.html', data={})
@@ -79,7 +77,9 @@ def upload():
             image = Image.open(io.BytesIO(output_data))
             image = image.convert("RGBA")  # Assurez-vous que l'image est en mode RGBA
             image.save(processed_path, 'PNG')  # Sauvegarder l'image en PNG
-
+        
+        # Lancer un thread pour supprimer l'image après 3 minutes (180 secondes)
+        threading.Thread(target=delete_file_after_delay, args=(processed_path, 180)).start()
         # Retourner la réponse HTMX
         return render_template('uploaded.html', image_url=processed_path, download_url=f'/download/{filename.rsplit(".", 1)[0]}.png')
     
