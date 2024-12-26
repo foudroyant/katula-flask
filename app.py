@@ -5,6 +5,7 @@ import threading
 import time
 from rembg import remove 
 from PIL import Image 
+import uvicorn
 from werkzeug.utils import secure_filename
 
 
@@ -80,6 +81,7 @@ def upload():
         
         # Lancer un thread pour supprimer l'image après 3 minutes (180 secondes)
         threading.Thread(target=delete_file_after_delay, args=(processed_path, 180)).start()
+        threading.Thread(target=delete_file_after_delay, args=(upload_path, 180)).start()
         # Retourner la réponse HTMX
         return render_template('uploaded.html', image_url=processed_path, download_url=f'/download/{filename.rsplit(".", 1)[0]}.png')
     
@@ -95,3 +97,4 @@ def download(filename):
 
 if __name__ == '__main__':
     app.run(debug=True)
+    #uvicorn.run()
